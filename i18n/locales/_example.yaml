@@ -1,0 +1,108 @@
+# ⚠️ 只修改 yaml 文件的内容，并不会在命令行工具中生效，还需要重新生成 i18n/i18n.generated.go 文件
+# ⚠️ i18n/i18n.generated.go 可以通过运行 i18n/pkg/main.go 自动生成
+# yaml 文件命名规则：*_zh-Hans.yaml 为简体中文，*_en-US.yaml 为美式英文
+
+# 1. 格式展示
+
+# 常用格式
+所属_分类_名称1:
+  message: xxx yyy zzz    # 需要显示的信息
+
+# 常用格式
+所属_分类_名称2:
+  args: 1                 # 显示的信息中占位符的个数；若个数为 0，可不写此参数
+  message: xxx %s yyy zzz
+
+# 特殊格式
+所属_分类_名称3:
+  args: 1
+  message: xxx %d yyy zzz
+  selectf:                # 处理单复数
+    - arg: 1
+      format: "%d"        # 仅支持 %d, %f, %g, %e
+      case:
+        - "=1"
+        - "xxx an yyy"
+        - "=2"
+        - "xxx two yyys"
+        - "other"
+        - "xxx %d yyys"
+
+# 特殊格式
+所属_分类_名称4:
+  args: 1                 # 显示的信息中用到的 2 个占位符均为 %[1]d，实际代码中只需要提供 1 个参数，故 args 只需传入 1 个即可
+  message: xxx %[1]d minute yyy %[1]d minute zzz
+  varf:                   # 插补字符串到消息中
+    - tag: "m"
+      str: "xxx %[1]d ${m} yyy %[1]d ${m} zzz"
+      selectf:
+        - arg: 1
+          format: "%d"
+          case:
+            - "=1"
+            - "minute"
+            - "other"
+            - "minutes"
+
+# 特殊格式
+所属_分类_名称5:
+  args: 1
+  message: "xxx %d yyy zzz"
+  selectf:
+    - arg: 1
+      format: "%d"
+      case:
+        - "one"           # 建议尽量使用阿拉伯数字，one 这样的判断仅在英语等部分语言下生效，在中文等语言下使用会报错
+        - "xxx One yyy zzz"
+        - "other"
+        - "xxx %[1]d yyys zzz"
+
+
+# 2. 实例说明
+belong_category_tomorrow:
+ message: Tomorrow is the Dragon Boat Festival
+
+belong_category_festival:
+  args: 1
+  message: Tomorrow is %s Festival
+
+belong_category_apple:
+  args: 1
+  message: "I have %d apple"
+  selectf:
+    - arg: 1
+      format: "%d"
+      case:
+        - "=1"
+        - "I have an apple"
+        - "=2"
+        - "I have two apples"
+        - "other"
+        - "I have %[1]d apples"
+
+belong_category_late:
+  args: 1
+  message: "You are %[1]d minute late, I have been waiting for you for %[1]d minute."
+  varf:
+    - tag: "m"
+      str: "You are %[1]d ${m} late, I have been waiting for you for %[1]d ${m}"
+      selectf:
+        - arg: 1
+          format: "%d"
+          case:
+            - "=1"
+            - "minute"
+            - "other"
+            - "minutes"
+
+belong_category_day_left:
+  args: 2
+  message: "%d day left for %s"
+  selectf:
+    - arg: 1
+      format: "%d"
+      case:
+        - "one"
+        - "One day left for %"
+        - "other"
+        - "%[1]d days left for %"

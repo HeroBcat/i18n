@@ -1,0 +1,14 @@
+common_flags_v_usage:
+  message: check error message~
+
+common_flag_help_template:
+  args: 1
+  message: "check %s help"
+
+common_flag_help_template2:
+  args: 1
+  message: "check %s help"
+
+common_flag_help_template3:
+  args: 1
+  message: "check %s help"

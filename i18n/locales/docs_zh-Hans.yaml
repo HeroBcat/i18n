@@ -1,0 +1,29 @@
+index_table_title_command:
+  message: 命令
+
+index_table_title_desc:
+  message: 描述
+
+title_synopsis:
+  message: 描述
+
+title_aliases:
+  message: 快捷命令
+
+title_options:
+  message: 可用选项
+
+title_inherited_options:
+  message: 通用选项
+
+title_examples:
+  message: 使用用例
+
+title_related_commands:
+  message: 相关命令
+
+title_see_also:
+  message: 其他命令
+
+useline_flags:
+  message: "[选项]"

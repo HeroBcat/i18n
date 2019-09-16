@@ -1,0 +1,69 @@
+# file path error message
+filepath_not_exist:
+  args: 1
+  message: "无法读取文件内容: 因为文件 %s 不存在"
+
+filepath_not_sure_how_to_load:
+  args: 1
+  message: "无法确定如何从路径 %s 加载"
+
+# api error message
+api_unknown_error:
+  message: 未知错误
+
+api_not_null_error:
+  message: 不能为空
+
+api_not_exist_error:
+  message: 不存在
+
+api_duplicated_error:
+  message: 重复
+
+api_pattern_error:
+  message: 输入格式有误
+
+api_size_error:
+  message: 数字输入有误
+
+api_min_error:
+  message: 数字未达最小限制
+
+api_max_error:
+  message: 数字超出最大限制
+
+api_invalid_error:
+  message: 参数输入有误
+
+api_exceed_job_count_limitation_error:
+  message: 已经达到容器的最大并行限制，无法再创建这种类型的资源了，请关闭同类资源后再试。
+
+api_4xx_bad_request:
+  message: 请检查你所填写的参数
+
+api_401_unauthorized:
+  message: 尚未登录
+
+api_403_forbidden:
+  message: 访问被阻止
+
+api_404_not_found:
+  message: 不存在
+
+api_408_timeout:
+  args: 1
+  message: "连接超时，状态码: %d"
+
+api_409_conflict:
+  args: 1
+  message: "冲突，状态码: %d"
+
+api_410_gone:
+  args: 1
+  message: "已丢失，状态码: %d"
+
+api_5xx_internal_server_error:
+  message: 服务器异常
+
+api_504_gateway_timed_out:
+  message: 无法连接到服务器

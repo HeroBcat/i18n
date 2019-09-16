@@ -1,0 +1,6 @@
+common_flags_v_usage:
+  message: 查看详细的错误信息
+
+common_flag_help_template:
+  args: 1
+  message: "查看 %s 的帮助"
