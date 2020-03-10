@@ -27,9 +27,9 @@ var (
 )
 
 var (
-	packName       = "i18n"
-	yamlPathPrefix = "i18n/locales/"
-	generatedPath  = "i18n/i18n.generated.go"
+	packName          = "i18n"
+	localesPathPrefix = "i18n/locales/"
+	generatedPath     = "i18n/i18n.generated.go"
 )
 
 var (
@@ -38,6 +38,7 @@ var (
 
 type content struct {
 	Message string    `yaml:"message"`
+	Path    string    `yaml:"path"`
 	Args    int       `yaml:"args"`
 	Selectf []selectf `yaml:"selectf"`
 	Varf    []varf    `yaml:"varf"`
@@ -245,6 +246,38 @@ func Check() {
 	}
 }
 
+func parseMessageFromPath(in []byte) string {
+
+	tmp := contentMap{}
+	result := contentMap{}
+	err := yaml.Unmarshal(in, &tmp)
+	containsPath := false
+	if err == nil {
+		for tmpKey, tmpValue := range tmp {
+			if tmpValue.Path != "" && tmpValue.Message == "" {
+				containsPath = true
+				byte, err := ioutil.ReadFile(filepath.Join(localesPathPrefix, tmpValue.Path))
+				if err == nil {
+					tmpValue.Message = string(byte)
+				}
+			}
+			result[tmpKey] = tmpValue
+		}
+	}
+
+	var out []byte
+	if containsPath {
+		out, err = yaml.Marshal(result)
+		if err != nil {
+			return ""
+		}
+	} else {
+		out = in
+	}
+
+	return string(out)
+}
+
 func Generate() {
 
 	file := jen.NewFile(packName)
@@ -257,7 +290,7 @@ func Generate() {
 	for _, filename := range files {
 		byte, _ := ioutil.ReadFile(filename)
 		filename = cleanup(filename, true)
-		dict[jen.Lit(filename)] = jen.Lit(string(byte))
+		dict[jen.Lit(filename)] = jen.Lit(parseMessageFromPath(byte))
 	}
 
 	file.Func().Id("init").Params().Block(
@@ -435,13 +468,21 @@ func getLanguageFiles() []string {
 
 	for _, tag := range supportLanguageTags {
 
-		filepath.Walk(yamlPathPrefix, func(path string, info os.FileInfo, err error) error {
+		filepath.Walk(localesPathPrefix, func(path string, info os.FileInfo, err error) error {
 			if info.IsDir() {
 				return nil
 			}
 			filename := info.Name()
 			if isYamlExt(filename) && strings.Contains(filename, tag.String()) {
+
+				for _, subPath := range strings.Split(path, "/") {
+					if strings.HasPrefix(subPath, "_") {
+						return nil
+					}
+				}
+
 				result = append(result, path)
+
 			}
 			return nil
 		})

@@ -1,0 +1,23 @@
+用法:{{if .Runnable}}
+  {{if .HasAvailableLocalFlags}}{{appendIfNotPresent .UseLine "[选项]"}}{{else}}{{.UseLine}}{{end}}{{end}}{{if .HasAvailableSubCommands}}
+  {{ .CommandPath}} [子命令]{{end}}{{if gt .Aliases 0}}
+
+快捷命令:
+  {{.NameAndAliases}}{{end}}{{if .HasAvailableSubCommands}}
+
+可用子命令:{{range .Commands}}{{if (or .IsAvailableCommand (eq .Name "help"))}}
+  {{rpad .Name .NamePadding }} {{.Short}}{{end}}{{end}}{{end}}{{if .HasAvailableLocalFlags}}
+
+可用选项:
+{{.LocalFlags.FlagUsages | trimRightSpace}}{{end}}{{if .HasAvailableInheritedFlags}}
+
+通用选项:
+{{.InheritedFlags.FlagUsages | trimRightSpace}}{{end}}{{if .HasExample}}
+
+使用用例:
+  {{ .Example }}{{end}}{{if .HasHelpSubCommands}}
+
+其他帮助主题:{{range .Commands}}{{if .IsAdditionalHelpTopicCommand}}
+  {{rpad .CommandPath .CommandPathPadding}} {{.Short}}{{end}}{{end}}{{end}}{{if .HasAvailableSubCommands}}
+
+使用 "{{.CommandPath}} [命令] --help" 获取更多有关此命令的信息。{{end}}

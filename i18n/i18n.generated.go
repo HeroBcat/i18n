@@ -4,11 +4,12 @@ package i18n
 
 func init() {
 	yamlMap = map[string]string{
-		"cmd_en-GB":     "common_flags_v_usage:\n  message: check error message~\n\ncommon_flag_help_template:\n  args: 1\n  message: \"check %s help\"\n\ncommon_flag_help_template2:\n  args: 1\n  message: \"check %s help\"\n\ncommon_flag_help_template3:\n  args: 1\n  message: \"check %s help\"",
-		"cmd_en-US":     "common_flags_v_usage:\n  message: check error message\n\ncommon_flag_help_template:\n  args: 1\n  message: \"check %s help\"\n\ncommon_flag_help_template2:\n  args: 1\n  message: \"check %s help\"",
-		"cmd_zh-Hans":   "common_flags_v_usage:\n  message: 查看详细的错误信息\n\ncommon_flag_help_template:\n  args: 1\n  message: \"查看 %s 的帮助\"",
-		"docs_zh-Hans":  "index_table_title_command:\n  message: 命令\n\nindex_table_title_desc:\n  message: 描述\n\ntitle_synopsis:\n  message: 描述\n\ntitle_aliases:\n  message: 快捷命令\n\ntitle_options:\n  message: 可用选项\n\ntitle_inherited_options:\n  message: 通用选项\n\ntitle_examples:\n  message: 使用用例\n\ntitle_related_commands:\n  message: 相关命令\n\ntitle_see_also:\n  message: 其他命令\n\nuseline_flags:\n  message: \"[选项]\"",
-		"error_zh-Hans": "# file path error message\nfilepath_not_exist:\n  args: 1\n  message: \"无法读取文件内容: 因为文件 %s 不存在\"\n\nfilepath_not_sure_how_to_load:\n  args: 1\n  message: \"无法确定如何从路径 %s 加载\"\n\n# api error message\napi_unknown_error:\n  message: 未知错误\n\napi_not_null_error:\n  message: 不能为空\n\napi_not_exist_error:\n  message: 不存在\n\napi_duplicated_error:\n  message: 重复\n\napi_pattern_error:\n  message: 输入格式有误\n\napi_size_error:\n  message: 数字输入有误\n\napi_min_error:\n  message: 数字未达最小限制\n\napi_max_error:\n  message: 数字超出最大限制\n\napi_invalid_error:\n  message: 参数输入有误\n\napi_exceed_job_count_limitation_error:\n  message: 已经达到容器的最大并行限制，无法再创建这种类型的资源了，请关闭同类资源后再试。\n\napi_4xx_bad_request:\n  message: 请检查你所填写的参数\n\napi_401_unauthorized:\n  message: 尚未登录\n\napi_403_forbidden:\n  message: 访问被阻止\n\napi_404_not_found:\n  message: 不存在\n\napi_408_timeout:\n  args: 1\n  message: \"连接超时，状态码: %d\"\n\napi_409_conflict:\n  args: 1\n  message: \"冲突，状态码: %d\"\n\napi_410_gone:\n  args: 1\n  message: \"已丢失，状态码: %d\"\n\napi_5xx_internal_server_error:\n  message: 服务器异常\n\napi_504_gateway_timed_out:\n  message: 无法连接到服务器",
+		"cmd_en-GB":        "common_flags_v_usage:\n  message: check error message~\n\ncommon_flag_help_template:\n  args: 1\n  message: \"check %s help\"\n\ncommon_flag_help_template2:\n  args: 1\n  message: \"check %s help\"\n\ncommon_flag_help_template3:\n  args: 1\n  message: \"check %s help\"",
+		"cmd_en-US":        "common_flags_v_usage:\n  message: check error message\n\ncommon_flag_help_template:\n  args: 1\n  message: \"check %s help\"\n\ncommon_flag_help_template2:\n  args: 1\n  message: \"check %s help\"",
+		"cmd_zh-Hans":      "common_flags_v_usage:\n  message: 查看详细的错误信息\n\ncommon_flag_help_template:\n  args: 1\n  message: \"查看 %s 的帮助\"",
+		"docs_zh-Hans":     "index_table_title_command:\n  message: 命令\n\nindex_table_title_desc:\n  message: 描述\n\ntitle_synopsis:\n  message: 描述\n\ntitle_aliases:\n  message: 快捷命令\n\ntitle_options:\n  message: 可用选项\n\ntitle_inherited_options:\n  message: 通用选项\n\ntitle_examples:\n  message: 使用用例\n\ntitle_related_commands:\n  message: 相关命令\n\ntitle_see_also:\n  message: 其他命令\n\nuseline_flags:\n  message: \"[选项]\"",
+		"error_zh-Hans":    "# file path error message\nfilepath_not_exist:\n  args: 1\n  message: \"无法读取文件内容: 因为文件 %s 不存在\"\n\nfilepath_not_sure_how_to_load:\n  args: 1\n  message: \"无法确定如何从路径 %s 加载\"\n\n# api error message\napi_unknown_error:\n  message: 未知错误\n\napi_not_null_error:\n  message: 不能为空\n\napi_not_exist_error:\n  message: 不存在\n\napi_duplicated_error:\n  message: 重复\n\napi_pattern_error:\n  message: 输入格式有误\n\napi_size_error:\n  message: 数字输入有误\n\napi_min_error:\n  message: 数字未达最小限制\n\napi_max_error:\n  message: 数字超出最大限制\n\napi_invalid_error:\n  message: 参数输入有误\n\napi_exceed_job_count_limitation_error:\n  message: 已经达到容器的最大并行限制，无法再创建这种类型的资源了，请关闭同类资源后再试。\n\napi_4xx_bad_request:\n  message: 请检查你所填写的参数\n\napi_401_unauthorized:\n  message: 尚未登录\n\napi_403_forbidden:\n  message: 访问被阻止\n\napi_404_not_found:\n  message: 不存在\n\napi_408_timeout:\n  args: 1\n  message: \"连接超时，状态码: %d\"\n\napi_409_conflict:\n  args: 1\n  message: \"冲突，状态码: %d\"\n\napi_410_gone:\n  args: 1\n  message: \"已丢失，状态码: %d\"\n\napi_5xx_internal_server_error:\n  message: 服务器异常\n\napi_504_gateway_timed_out:\n  message: 无法连接到服务器",
+		"template_zh-Hans": "cmd_usage_template:\n  message: |-\n    用法:{{if .Runnable}}\n      {{if .HasAvailableLocalFlags}}{{appendIfNotPresent .UseLine \"[选项]\"}}{{else}}{{.UseLine}}{{end}}{{end}}{{if .HasAvailableSubCommands}}\n      {{ .CommandPath}} [子命令]{{end}}{{if gt .Aliases 0}}\n\n    快捷命令:\n      {{.NameAndAliases}}{{end}}{{if .HasAvailableSubCommands}}\n\n    可用子命令:{{range .Commands}}{{if (or .IsAvailableCommand (eq .Name \"help\"))}}\n      {{rpad .Name .NamePadding }} {{.Short}}{{end}}{{end}}{{end}}{{if .HasAvailableLocalFlags}}\n\n    可用选项:\n    {{.LocalFlags.FlagUsages | trimRightSpace}}{{end}}{{if .HasAvailableInheritedFlags}}\n\n    通用选项:\n    {{.InheritedFlags.FlagUsages | trimRightSpace}}{{end}}{{if .HasExample}}\n\n    使用用例:\n      {{ .Example }}{{end}}{{if .HasHelpSubCommands}}\n\n    其他帮助主题:{{range .Commands}}{{if .IsAdditionalHelpTopicCommand}}\n      {{rpad .CommandPath .CommandPathPadding}} {{.Short}}{{end}}{{end}}{{end}}{{if .HasAvailableSubCommands}}\n\n    使用 \"{{.CommandPath}} [命令] --help\" 获取更多有关此命令的信息。{{end}}\n  path: _templates/cmd_usage_zh-Hans.txt\n  args: 0\n  selectf: []\n  varf: []\n",
 	}
 }
 
@@ -324,6 +325,18 @@ func (p printContext) ErrorFilepathNotExist(arg0 interface{}) {
 
 func (p printContext) ErrorFilepathNotSureHowToLoad(arg0 interface{}) {
 	Printf(errorFilepathNotSureHowToLoad, arg0)
+}
+
+var (
+	templateCmdUsageTemplate = "template_cmd_usage_template"
+)
+
+func TemplateCmdUsageTemplate() string {
+	return SPrintf(templateCmdUsageTemplate)
+}
+
+func (p printContext) TemplateCmdUsageTemplate() {
+	Printf(templateCmdUsageTemplate)
 }
 
 var (

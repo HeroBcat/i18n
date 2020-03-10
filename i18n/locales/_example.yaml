@@ -1,6 +1,7 @@
 # ⚠️ 只修改 yaml 文件的内容，并不会在命令行工具中生效，还需要重新生成 i18n/i18n.generated.go 文件
 # ⚠️ i18n/i18n.generated.go 可以通过运行 i18n/pkg/main.go 自动生成
 # yaml 文件命名规则：*_zh-Hans.yaml 为简体中文，*_en-US.yaml 为美式英文
+# "_"开头的文件或文件夹属于忽略文件或文件夹，内容不会被处理
 
 # 1. 格式展示
 
